@@ -1,0 +1,26 @@
+{
+  "name": "flappy-bird-type-game",
+  "version": "1.0.0",
+  "description": "version 1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node node_scripts/start.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abbiars/Flappy-bird-type-game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/abbiars/Flappy-bird-type-game/issues"
+  },
+  "homepage": "https://github.com/abbiars/Flappy-bird-type-game#readme",
+  "dependencies": {
+    "howler": "^2.2.4"
+  }
+}

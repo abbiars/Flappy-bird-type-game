@@ -1,1 +1,0 @@
-import main from './JS/bird.js'

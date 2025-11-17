@@ -1,5 +1,5 @@
 export function jump() {
-  console.log("it workie")
+  console.log('it workie')
 }
 
 document.onclick = () => {
@@ -12,10 +12,6 @@ document.onkeydown = (event) => {
     jump()
   }
 }
- 
 
+const all = { jump }
 export default all;
-
-const all = {
-  jump
-};
