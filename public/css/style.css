@@ -1,5 +1,18 @@
-body{
+/*body{
     background-color: rgb(53, 212, 252);
 }
+*/
 
+body {
+    background-image: url('../assets/background/background.jpg');
+    background-size: cover;
+    margin: 0;
+    overflow: hidden;
+}
+/* dette gjør sånn at man ikke kan markere bilder på ulike type nettleserr */
+img {
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
  
+}
