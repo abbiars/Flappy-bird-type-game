@@ -1,5 +1,5 @@
 export function jump() {
-  console.log('it workie')
+  console.log('jump funker');
 }
 
 
@@ -7,3 +7,11 @@ export function jump() {
 
 const all = { jump }
 export default all;
+
+
+function startGame() {
+    if (!gameStarted) {
+        gameStarted = true;
+        document.getElementById("pre-interaction-overlay").remove();
+    }
+}

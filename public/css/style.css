@@ -4,15 +4,24 @@
 */
 
 body {
-    background-image: url('../assets/background/background.jpg');
-    background-size: cover;
+    background-image: url('../assets/background/background.jpg'); /* tar bakrunnsbildet fra assets mappen */
+    background-size: 100% 100%;
+    background-repeat: no-repeat; /* gjør sånn at bildet ikke repeteres */
+    background-attachment: fixed; /* gjør sånn at bildet ikke kan scrolle med siden */
+    background-position: center; /* sentrerer bildet */
     margin: 0;
     overflow: hidden;
 }
-/* dette gjør sånn at man ikke kan markere bilder på ulike type nettleserr */
+/* dette gjør sånn at man ikke kan markere fuglen på ulike type nettleserr */
 img {
     -webkit-user-select: none; 
     -ms-user-select: none; 
     user-select: none; 
  
 }
+#pre-interaction-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3); /* can gjer ting svartere before interaction */
+  z-index: 999;               /* on everithing */
+  pointer-events: all;           /* block everething */
