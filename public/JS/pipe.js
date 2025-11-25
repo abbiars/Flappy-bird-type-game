@@ -1,33 +1,55 @@
- // https://www.youtube.com/watch?v=jj5ADM2uywg 
-//pipes
-let pipeArray = [];
-let pipeWidth = 64; //width/height ratio = 384/3072 = 1/8
-let pipeHeight = 512;
-let pipeX = boardWidth;
-let pipeY = 0;
+// ===== PIPE SETTINGS =====
+const pipeSpeed = 3;               // how fast pipes move left
+const pipeGap = 150;               // gap between upper/lower pipes
+const pipeSpawnInterval = 2000;    // every 2 seconds
+const pipeWidth = 80;
+const pipeTopSrc = './assets/pipes/toppipe.png';     // <-- set top pipe image here
+const pipeBottomSrc = './assets/pipes/bottompipe.png'; // <-- set bottom pipe image here
 
-let topPipeimg;
-let bottomPipeImg;
+let pipes = []; // stores all pipe pairs
+let pipeImageHeight = 320; // fallback; will be overwritten when image loads
 
-// pipe speed
-let velocityX = -2;
-// bilder av piper
-    topPipeImg = new Image();
-    topPipeImg.src = "./toppipe.png";
+// preload pipe image to read naturalHeight reliably
+const probePipe = new Image();
+probePipe.src = pipeTopSrc;
+probePipe.onload = () => {
+  // if your top and bottom images have same height, use this
+  pipeImageHeight = probePipe.naturalHeight || pipeImageHeight;
+  // if top and bottom differ, you can probe both and store separately
+};
 
-    bottomPipeImg = new Image();
-    bottomPipeImg.src = "./bottompipe.png";
-{
-     requestAnimationFrame(update);
-    setInterval(placePipes, 1500); //every 1.5 seconds
+// Spawn pipes repeatedly (start only when game starts if you prefer)
+setInterval(() => {
+  if (gameStarted) spawnPipePair();
+}, pipeSpawnInterval);
+
+// Create one pair of pipes (uses pipeTopSrc / pipeBottomSrc)
+function spawnPipePair() {
+  const minY = -200;
+  const maxY = 100;
+  const topOffset = Math.floor(Math.random() * (maxY - minY) + minY);
+
+  // spawn just off the right edge
+  const startX = window.innerWidth + 20;
+
+  // UPPER PIPE
+  const upper = document.createElement("img");
+  upper.src = pipeTopSrc;                      // <-- toppipe image used here
+  upper.style.position = "absolute";
+  upper.style.left = startX + "px";
+  upper.style.top = topOffset + "px";
+  upper.style.width = pipeWidth + "px";
+  document.body.appendChild(upper);
+
+  // LOWER PIPE
+  const lower = document.createElement("img");
+  lower.src = pipeBottomSrc;                   // <-- bottompipe image used here
+  lower.style.position = "absolute";
+  lower.style.left = startX + "px";
+  // use measured pipeImageHeight instead of hard-coded 320
+  lower.style.top = (topOffset + pipeGap + pipeImageHeight) + "px";
+  lower.style.width = pipeWidth + "px";
+  document.body.appendChild(lower);
+
+  pipes.push({ upper, lower, x: startX });
 }
- for (let i = 0; i < pipeArray.length; i++) {
-        let pipe = pipeArray[i];
-        pipe.x += velocityX;
-        context.drawImage(pipe.img, pipe.x, pipe.y, pipe.width, pipe.height);
- }
-        if (!pipe.passed && bird.x > pipe.x + pipe.width) {
-            score += 0.5; //0.5 because there are 2 pipes! so 0.5*2 = 1, 1 for each set of pipes
-            pipe.passed = true;
-        }
-        

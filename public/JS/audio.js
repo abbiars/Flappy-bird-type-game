@@ -20,3 +20,4 @@ function startBgmOnFirstGesture() {
 }
 
 startBgmOnFirstGesture();
+
