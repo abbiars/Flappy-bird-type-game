@@ -5,10 +5,11 @@ let birdVelocity = 0; // hastigheten til birden oppover eller nedover
 const gravity = 0.6; // en verdi som bestemmer hvor raskt birden faller nedover
 const jumpPower = -12; // en verdi som bestemmer hvor høyt birden hopper oppover
 
+let isDead = false;
 let gameStarted = false; // <-- game not start KM
 
-const upperLimit = -50;   // how far UP the bird can go before dying
-const lowerLimit = -10000;   // how far DOWN the bird can fall before dying
+const upperLimit = -90;   // how far UP the bird can go before dying
+const lowerLimit = 200;   // how far DOWN the bird can fall before dying
 // Legger til funksjon fall for gravitasjon. Birden faller nedover ved å øke birdY med gravity-verdien og oppdatere transform-stilen til birdImage for å flytte den nedover på skjermen.
 
 setInterval(() => {
@@ -40,7 +41,7 @@ document.body.appendChild(birdImage);
 
 function fall() {
   if (!gameStarted) return;
-
+ 
   birdVelocity += gravity;
   birdY += birdVelocity;
 
@@ -50,6 +51,7 @@ function fall() {
   if (birdY < upperLimit || birdY > lowerLimit) {
     die();
   }
+   if (!gameStarted || isDead) return;
 }
 
 // dette gjør spnn at når du presser spacebar eller klikker med musa så gjør fuglen jump funksjonen
@@ -66,8 +68,27 @@ export default all
 
 function die() {
   console.log("BIRD DIED 💀");
-  
+    if (isDead) return; // hindrer dobbel død
+  isDead = true;
   // Restart entire game/page
-  location.reload();
+   // Stopp spillet
+  gameStarted = false;
+
+  // Liten delay før restart (ser bedre ut)
+  setTimeout(() => {
+    restartGame();
+  }, 1000);
+}
+
+function restartGame() {
+  // Reset verdier
+  birdY = 0;
+  birdVelocity = 0;
+  isDead = false;
+
+  // Reset visuell posisjon
+  birdImage.style.transform = `translateY(0px)`;
+
+  console.log("GAME RESTARTED 🔁");
 }
 let all; "fisk"
