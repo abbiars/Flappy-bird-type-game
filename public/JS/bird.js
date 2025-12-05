@@ -5,8 +5,8 @@ import { updatePipes, resetPipes, setGameState } from './pipe.js';
 let birdY = 0;
 let birdVelocity = 0;
 //Abdallah
-const gravity = 0.5;
-const jumpPower = -8;
+const gravity = 0.43;
+const jumpPower = -7.5;
 //KM (Kyrylo Moroz)
 let isDead = false;
 let gameStarted = false;
