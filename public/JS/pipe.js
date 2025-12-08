@@ -1,14 +1,14 @@
 // Pipe variables - AED
 const pipeWidth = 80;
-const pipeGap = 200; // gap mellom topp og bunn pipe - FIXED WIDTH
-let pipeSpeed = 3; // hvor fort pipes beveger seg (starter på 3)
-const pipeSpeedIncrease = 0.15; // hvor mye hastigheten øker per pipe passert
-const maxPipeSpeed = 8; // maks hastighet for pipes
+const pipeGap = 220; // gap mellom topp og bunn pipe - FIXED WIDTH
+let pipeSpeed = 50; // hvor fort pipes beveger seg (starter på 3)
+const pipeSpeedIncrease = 0.3; // hvor mye hastigheten øker per pipe passert
+const maxPipeSpeed = 100; // maks hastighet for pipes
 let pipes = []; // array for å holde alle pipes
 let pipeSpawnTimer = 0;
 let pipeSpawnInterval = 90; // spawn nye pipes hver 90 frames (1.5 sekunder)
-const minSpawnInterval = 60; // minimum spawn interval (fastest spawn rate)
-const spawnIntervalDecrease = 2; // hvor mye spawn interval reduseres
+const minSpawnInterval = 45; // minimum spawn interval (fastest spawn rate). Var 60
+const spawnIntervalDecrease = 3; // hvor mye spawn interval reduseres. Var 2 
 let score = 0;
 let gameStarted = false;
 let isDead = false;

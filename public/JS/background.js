@@ -8,8 +8,7 @@ function scrollBackground() {
     backgroundX -= scrollSpeed;
     panoramaBackground.style.backgroundPosition = `${backgroundX}px 0`;
     requestAnimationFrame(scrollBackground);
-  } else {
-    console.error('panorama-background element not found!');
+
   }
 }
 

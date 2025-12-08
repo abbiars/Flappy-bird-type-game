@@ -1,17 +1,17 @@
+// bakgrunnsmusikk setup
 let bgm = new Audio('./assets/audio/backgroundmusic.mp3');
 bgm.loop = true;
 bgm.volume = 0.5;
 bgm.preload = 'auto';
 
-// Try to play; return the promise so caller can handle errors
 export function playBgm() {
   return bgm.play();
 }
 
-// Start BGM on first user gesture (click or keydown). Browsers block autoplay otherwise.
+// Starter bakrunnsmusikk på første interaction f.eks klikk eller keyboard trykk.
 function startBgmOnFirstGesture() {
   const handler = () => {
-    playBgm().catch(err => console.warn('bgm play blocked:', err));
+    playBgm().catch(() => {});
     window.removeEventListener('click', handler);
     window.removeEventListener('keydown', handler);
   };
@@ -25,12 +25,12 @@ startBgmOnFirstGesture();
 export function playFlapSound() {
   const flapSound = new Audio('./assets/audio/flap.mp3');
   flapSound.volume = 0.6;
-  flapSound.play().catch(err => console.warn('flap sound blocked:', err));
+  flapSound.play().catch(() => {});
 }
 
 // Death sound effect
 export function playDeathSound() {
   const deathSound = new Audio('./assets/audio/death.mp3');
   deathSound.volume = 0.5;
-  deathSound.play().catch(err => console.warn('death sound blocked:', err));
+  deathSound.play().catch(() => {});
 }
