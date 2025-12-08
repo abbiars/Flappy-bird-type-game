@@ -21,6 +21,7 @@ scoreDisplay.style.top = '50px';
 scoreDisplay.style.left = '50%';
 scoreDisplay.style.transform = 'translateX(-50%)';
 scoreDisplay.style.fontSize = '48px';
+scoreDisplay.style.fontFamily = "'Press Start 2P', cursive";
 scoreDisplay.style.fontWeight = 'bold';
 scoreDisplay.style.color = 'white';
 scoreDisplay.style.textShadow = '3px 3px 0px black';
