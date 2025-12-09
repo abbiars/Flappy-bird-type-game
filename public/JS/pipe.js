@@ -1,7 +1,7 @@
 // Pipe variables - AED
 const pipeWidth = 80;
 const pipeGap = 220; // gap mellom topp og bunn pipe - FIXED WIDTH
-let pipeSpeed = 50; // hvor fort pipes beveger seg (starter på 3)
+let pipeSpeed = 8; // hvor fort pipes beveger seg (starter på 3)
 const pipeSpeedIncrease = 0.3; // hvor mye hastigheten øker per pipe passert
 const maxPipeSpeed = 100; // maks hastighet for pipes
 let pipes = []; // array for å holde alle pipes
@@ -33,6 +33,8 @@ document.body.appendChild(scoreDisplay);
 function createPipe() {
   const minHeight = 50;
   const maxHeight = window.innerHeight - pipeGap - 150;
+  
+  
   const topHeight = Math.random() * (maxHeight - minHeight) + minHeight;
   
   // Top pipe - prøv å bruke bilde først

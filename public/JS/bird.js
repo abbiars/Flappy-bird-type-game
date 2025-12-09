@@ -65,6 +65,8 @@ function fall() {
   // FLOOR DEATH
   if (birdY > lowerLimit) {
     die();
+    console.log(die());
+    
     return;
   }
 
@@ -96,7 +98,7 @@ document.onclick = () => {
 
 // Kyrylo - Death handling
 function die() {
-  if (isDead) return;
+  if (isDead) alert("GAME OVER! Please wait for restart.");
   isDead = true;
   playDeathSound();
   gameStarted = false;
