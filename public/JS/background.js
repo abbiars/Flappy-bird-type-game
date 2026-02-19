@@ -1,5 +1,5 @@
 let backgroundX = 0;
-const scrollSpeed = 5;
+const scrollSpeed = 2.5;
 
 function scrollBackground() {    
   const panoramaBackground = document.getElementById('panorama-background');

@@ -4,8 +4,8 @@ import { updatePipes, resetPipes, setGameState } from './pipe.js';
 // Bird physics - Abdallah
 let birdY = 0;
 let birdVelocity = 0;
-const gravity = 0.43;
-const jumpPower = -8;
+const gravity = 0.6;
+const jumpPower = -10;
 
 // Game state - KM (Kyrylo Moroz)
 let isDead = false;
